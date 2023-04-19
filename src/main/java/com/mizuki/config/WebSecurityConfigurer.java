@@ -34,7 +34,8 @@ public class WebSecurityConfigurer extends WebSecurityConfigurerAdapter {
                         new AntPathRequestMatcher("/aa", "GET"),
                         new AntPathRequestMatcher("/bb", "POST")
                 ))
-                .logoutSuccessUrl("/login.html")
+                .logoutSuccessHandler(new MyLogoutSuccessHandler()) // 前后端离
+                //.logoutSuccessUrl("/login.html")
                 .and()
                 .csrf().disable(); // 关闭 csrf 跨站请求保护
     }
